@@ -1,13 +1,10 @@
-package com.java.spring.controller.exception;
+package com.java.spring.controller;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.java.spring.jstack.StackOutOfMemory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
@@ -24,10 +21,6 @@ public class ErrorPageController extends AbstractController implements Initializ
         return null;
     }
 
-    @Resource
-    private StackOutOfMemory stackOutOfMemory;
-
     public void afterPropertiesSet() throws Exception {
-		Assert.notNull(stackOutOfMemory,"stackOutOfMemory must be not ull");
     }
 }

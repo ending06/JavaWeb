@@ -1,12 +1,10 @@
-package com.java.spring.controller.login;
+package com.java.spring.controller;
 
-import com.java.spring.jstack.StackOutOfMemory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,10 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 // <p>@author ruirui.qu Initial Created at 17/9/14<p>
 // -------------------------------------------------------
 @Controller
-public class UserLoginIn extends AbstractController {
-
-    @Resource
-    private StackOutOfMemory stackOutOfMemory;
+public class UserLoginInController extends AbstractController {
 
     @RequestMapping(value = "/loginIn.do")
     @Override
@@ -32,8 +27,6 @@ public class UserLoginIn extends AbstractController {
         if("admin".equals(userName) && "admin".equals(userPwd)){
 
             System.out.println("进入登陆页面");
-
-            stackOutOfMemory.newThread();
 
             //将页面需要使用的数据保存
             mav.addObject("currentUserName", userName);
